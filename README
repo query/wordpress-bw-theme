@@ -1,0 +1,17 @@
+A custom theme I developed for Blue & White <http://www.unc.edu/bw/>, a monthly 
+magazine at UNC, with some custom features designed specifically for its usage.  
+Code based on WordPress 3.0's default theme, Twenty Ten.  Appearance, less so.
+
+Uses Jan Sorgalla's jCarousel <http://sorgalla.com/projects/jcarousel/>.
+
+Special features:
+- Page templates for issue archives and individual issues.
+- Feature photos for pages (684 by 150 pixels), using WordPress post 
+  thumbnails.  These photos can also be displayed in a front page "featured 
+  content" carousel, configured through the theme options.
+- Spot colors that change the basis color of the theme on a per-page basis, 
+  using a #rrggbb hex triplet in a custom field named "spotcolor".  If no spot 
+  color is configured for a specific page, it looks for one in its ancestors, 
+  and then falls back to a default specified in the theme options.
+- Author names can be overridden by using a custom field named "author"; the 
+  special value "@none" disables bylines on pages.
