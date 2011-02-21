@@ -1,0 +1,14 @@
+#bw_theme_spotcolor ul, #bw_theme_featured_pages ul {
+    margin-left: 18px;
+}
+
+#bw_theme_featured_pages_container {
+    max-height: 205px;
+    border: 1px solid #dfdfdf;
+    padding: 0.5em 0.9em;
+    overflow: auto;
+}
+
+#bw_theme_featured_pages_container > ul {
+    margin-left: 0;
+}

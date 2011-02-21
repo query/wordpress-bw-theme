@@ -1,0 +1,779 @@
+/*
+Theme Name: Blue & White
+Theme URI: http://www.unc.edu/bw/
+Description: A modernized version of the original Blue & White theme by Amanda McPherson, built for WordPress 3.0.
+Author: Roger Que
+Version: 1.0
+Tags: custom
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Cuprum);
+
+@font-face {
+    font-family: "Myriad Condensed";
+    src: local("MyriadPro-Cond"), local("MyriadWeb-Cond");
+}
+
+@font-face {
+    font-family: "Frutiger LT Std Condensed";
+    src: local("FrutigerLTStd-Cn");
+}
+
+/* Global element definitions */
+
+html, body {
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+    background: white;
+    color: black;
+}
+
+a:link {
+    color: #808080 /* spotcolor */;
+    text-decoration: none;
+    border-bottom-width: 1px;
+    border-bottom-style: dotted;
+}
+
+a:visited {
+    color: #a0a0a0 /* spotcolor opacity 0.75 */;
+}
+
+a:link:hover, a:link:active, a:link:focus {
+    border-bottom-style: solid;
+}
+
+.screen-reader-text /* text meant only for screen readers */ {
+    position: absolute;
+    left: -9000px;
+}
+
+header, footer, section, article, figure, hgroup, nav {
+    display: block;
+}
+
+img {
+    border: none;
+}
+
+/* Wrapper, header, and footer elements */
+
+#wrapper {
+    width: 700px;
+    margin: 8px auto;
+    padding: 1px;
+    border: 3px solid #808080 /* spotcolor */;
+    font: 83% "Helvetica Neue", "Arial", sans-serif;
+}
+
+#wrapper > header {
+    display: block;
+    width: 700px;
+}
+
+#wrapper > header hgroup {
+    display: block;
+    position: relative;
+    height: 147px;
+    margin: 0;
+    padding: 0;
+    text-indent: -999px;
+    background: #808080 /* spotcolor */ url(images/header.png);
+}
+
+#wrapper > header hgroup * {
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper > header hgroup a:link,
+#wrapper > header hgroup a:visited {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom-style: none;
+}
+
+#wrapper > header nav {
+    text-align: center;
+    background: #c0c0c0 /* spotcolor opacity 0.5 */;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+#wrapper > header .menu {
+    margin: 0 0 1.65em;
+    padding: 0;
+    border-bottom: 2px solid #a0a0a0 /* spotcolor opacity 0.75 */;
+    letter-spacing: -0.35em;
+    word-spacing: -0.35em;
+}
+
+#wrapper > header .menu li {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    word-spacing: 0;
+}
+
+#wrapper > header .menu > li::before {
+    display: block;
+    color: white;
+    position: relative;
+    left: -0.65em;
+    top: 0.65em;
+    width: 1em;
+    height: 0;
+    text-align: center;
+    content: "·";
+}
+
+#wrapper > header .menu > li:first-child::before {
+    content: "";
+}
+
+#wrapper > header nav a:link, #wrapper > header nav a:visited {
+    display: block;
+    margin: 0;
+    padding: 0.75em 1em 0.5em 1.5em;
+    border: none;
+    font: 110%/1em "Myriad Condensed", "Frutiger LT Std Condensed", "Cuprum", sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.5em;
+    color: white;
+}
+
+#wrapper > header nav a:hover,
+#wrapper > header nav a:active,
+#wrapper > header nav a:focus,
+#wrapper > header nav .current-menu-ancestor a,
+#wrapper > header nav .current-menu-item a {
+    background: white;
+    color: black;
+}
+
+#wrapper > header nav .current-menu-item > a {
+    color: #808080 /* spotcolor */;
+}
+
+#wrapper > header nav .sub-menu {
+    display: none;
+}
+
+#wrapper > header nav li.current-menu-ancestor .sub-menu,
+#wrapper > header nav li.current-menu-item .sub-menu {
+    display: block;
+    margin: 0;
+    padding: 0 1em;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    white-space: nowrap;
+    letter-spacing: -0.35em;
+    word-spacing: -0.35em;
+}
+
+#wrapper > header nav .sub-menu a:link,
+#wrapper > header nav .sub-menu a:visited {
+    margin: 0;
+    padding: 0.5em 1em 0;
+    text-transform: lowercase;
+    letter-spacing: 0;
+}
+
+#breadcrumb {
+    clear: both;
+    margin: 10px 0 0;
+    padding: 10px 0 0;
+    border-top: 2px solid #cccccc;
+}
+
+#breadcrumb ul {
+    margin: 0;
+    padding: 0;
+}
+
+#breadcrumb li {
+    display: inline;
+    list-style: none;
+}
+
+#breadcrumb li::before {
+    content: " \A0→\A0 ";
+}
+
+#breadcrumb li:first-child::before {
+    content: none;
+}
+
+#wrapper > footer {
+    margin: 0;
+    padding: 0.5em;
+    background: #808080 /* spotcolor */;
+    color: white;
+    font-size: 83%;
+    text-align: center;
+}
+
+#wrapper > footer a:link, #wrapper > footer a:visited {
+    color: white;
+}
+
+#wrapper > footer #copyright, #wrapper > footer #meta {
+    display: inline;
+}
+
+#wrapper > footer #meta {
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper > footer #meta li {
+    list-style: none;
+    display: inline;
+}
+
+#wrapper > footer #meta li::after {
+    content: ". ";
+}
+
+/* Main content blocks */
+
+#main {
+    margin: 10px 8px 9px;
+    padding: 0 0 1px; /* for "Edit" links with bottom borders */
+    overflow: hidden;
+}
+
+article header, article footer {
+    color: #808080;
+}
+
+article header figure {
+    margin: 0 0 10px;
+}
+
+.entry-title {
+    margin: 0 0 10px;
+    padding: 0 0 10px;
+    border-bottom: 2px solid #cccccc;
+}
+
+.entry-title hgroup * {
+    display: inline;
+}
+
+h1.entry-title, .entry-title h1 {
+    font-family: serif;
+    color: #808080 /* spotcolor */;
+}
+
+.entry-title h2 {
+    font-weight: normal;
+    font-style: italic;
+    padding-left: 0.5em;
+}
+
+.excerpt {
+    font-weight: bold;
+}
+
+.columns {
+    margin-left: -20px;
+    overflow: auto;
+}
+
+.column {
+    float: left;
+    overflow: auto;
+    width: 332px;
+    margin: 0 0 0 20px;
+}
+
+/* Pages with sidebars: left container and sidebar */
+
+#container {
+    float: left;
+    margin: 0;
+    width: 480px;
+}
+
+#sidebar {
+    float: right;
+    margin: 0;
+    width: 180px;
+    font-size: 90%;
+}
+
+/* Blog posts */
+
+.post-list article {
+    margin: 0 0 1em;
+}
+
+.post-list article h1 {
+    margin: 0;
+}
+
+.post-list article h1 a:link,
+.post-list article h1 a:visited {
+    border-bottom-style: none;
+}
+
+.post-list nav {
+    border-top: 1px solid #e7e7e7;
+    margin: 1em 0 -1px;
+    padding: 1em 0 1px;
+    overflow: hidden;
+}
+
+.single article nav {
+	border-top: 1px solid #e7e7e7;
+	margin: 24px 0 -1px;
+	padding: 24px 0 1px;
+	overflow: hidden;
+}
+
+.nav-previous {
+	float: left;
+	width: 50%;
+}
+
+.nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+
+/* Comments -- mostly verbatim from Twenty Ten */
+
+#comments {
+	clear: both;
+}
+#comments .navigation {
+	padding: 0 0 18px 0;
+}
+h3#comments-title,
+h3#reply-title {
+	color: #000;
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 0;
+}
+h3#comments-title {
+	padding: 0 0 24px;
+}
+.commentlist {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.commentlist li.comment {
+	padding: 0 0 0 56px;
+	position: relative;
+}
+.commentlist ol {
+	list-style: decimal;
+}
+
+.comment header {
+    border-bottom: 1px dotted #e7e7e7;
+    padding-bottom: 0.5em;
+    margin-bottom: -0.5em;
+}
+
+.comment header a, .comment footer a {
+    border: none;
+}
+
+.commentlist .avatar {
+	position: absolute;
+	top: 3px;
+	left: 0;
+}
+.comment-author {
+}
+.comment-author cite {
+	color: #000;
+	font-style: normal;
+	font-weight: bold;
+}
+.comment-author .says {
+	font-style: italic;
+}
+.commentlist .even {
+}
+.commentlist .bypostauthor {
+}
+.commentlist .children {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.commentlist .children li {
+	border: none;
+	margin: 0;
+}
+
+.comment footer {
+    border-top: 1px dotted #e7e7e7;
+    padding-top: 0.5em;
+    margin: -0.5em 0 1em;
+}
+
+.nopassword,
+.nocomments {
+	display: none;
+}
+#comments .pingback {
+	border-bottom: 1px solid #e7e7e7;
+	margin-bottom: 18px;
+	padding-bottom: 18px;
+}
+.commentlist li.comment+li.pingback {
+	margin-top: -6px;
+}
+#comments .pingback p {
+	color: #888;
+	display: block;
+	font-size: 12px;
+	line-height: 18px;
+	margin: 0;
+}
+#comments .pingback .url {
+	font-size: 13px;
+	font-style: italic;
+}
+
+/* Comments form */
+input[type=submit] {
+	color: #333;
+}
+#respond {
+	border-top: 1px solid #e7e7e7;
+	margin: 24px 0 0;
+	overflow: hidden;
+	position: relative;
+}
+#respond p {
+	margin: 0;
+}
+#respond .comment-notes {
+	margin-bottom: 1em;
+}
+.form-allowed-tags {
+	line-height: 1em;
+}
+.children #respond {
+	margin: 0 48px 0 0;
+}
+h3#reply-title {
+	margin: 18px 0;
+}
+#comments-list #respond {
+	margin: 0 0 18px 0;
+}
+#comments-list ul #respond {
+	margin: 0;
+}
+#cancel-comment-reply-link {
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 18px;
+}
+#respond .required {
+	color: #ff4b33;
+	font-weight: bold;
+}
+#respond label {
+	color: #888;
+	font-size: 12px;
+}
+#respond input {
+	margin: 0 0 9px;
+	width: 98%;
+}
+#respond textarea {
+	width: 98%;
+}
+#respond .form-allowed-tags {
+	color: #888;
+	font-size: 12px;
+	line-height: 18px;
+}
+#respond .form-allowed-tags code {
+	font-size: 11px;
+}
+#respond .form-submit {
+	margin: 12px 0;
+}
+#respond .form-submit input {
+	font-size: 14px;
+	width: auto;
+}
+
+/* Widget areas -- mostly verbatim from Twenty Ten */
+
+.widget-area ul {
+	list-style: none;
+	margin: 0;
+}
+.widget-area ul ul {
+	list-style: square;
+	margin-left: 1.3em;
+}
+.widget_search #s {
+	width: 100%;
+}
+.widget_search label {
+	display: none;
+}
+.widget-container {
+	margin: 0 0 18px 0;
+}
+.widget-area h1 {
+	color: #222;
+	font-size: 100%;
+	font-weight: bold;
+	margin-bottom: 0;
+}
+.widget-area .entry-meta {
+	font-size: 11px;
+}
+#wp_tag_cloud div {
+	line-height: 1.6em;
+}
+#wp-calendar {
+	width: 100%;
+}
+#wp-calendar caption {
+	color: #222;
+	font-size: 14px;
+	font-weight: bold;
+	padding-bottom: 4px;
+	text-align: left;
+}
+#wp-calendar thead {
+	font-size: 11px;
+}
+#wp-calendar thead th {
+}
+#wp-calendar tbody {
+	color: #aaa;
+}
+#wp-calendar tbody td {
+	background: #f5f5f5;
+	border: 1px solid #fff;
+	padding: 3px 0 2px;
+	text-align: center;
+}
+#wp-calendar tbody .pad {
+	background: none;
+}
+#wp-calendar tfoot #next {
+	text-align: right;
+}
+.widget_rss a.rsswidget {
+	color: #000;
+}
+.widget_rss a.rsswidget:hover {
+	color: #ff4b33;
+}
+.widget_rss .widget-title img {
+	width: 11px;
+	height: 11px;
+}
+
+/* Main sidebars */
+#main .widget-area ul {
+	margin-left: 0;
+	padding: 0;
+}
+#main .widget-area ul ul {
+	border: none;
+	margin-left: 1.3em;
+	padding: 0;
+}
+#primary {
+}
+#secondary {
+}
+
+/* Footer widget areas */
+#footer-widget-area {
+}
+
+/* Special pages: Home page */
+
+.home h1 {
+    margin-top: 0;
+}
+
+#home-thisissue {
+    position: relative;
+    margin: 0 0 2em;
+    padding: 0 0 2em;
+}
+
+#home-thisissue .carousel, #home-thisissue .carousel li {
+    margin: 0;
+    padding: 0;
+    width: 684px;
+    height: 225px;
+    overflow: hidden;
+    list-style: none;
+}
+
+#home-thisissue .carousel li {
+    margin-right: 20px;
+}
+
+#home-thisissue article {
+    width: 684px;
+    height: 225px;
+    background: #808080 /* spotcolor */;
+    color: white;
+}
+
+#home-thisissue figure {
+    margin: 0;
+    padding: 0;
+}
+
+#home-thisissue .carousel h1, #home-thisissue .excerpt {
+    margin: 0 10px;
+}
+
+#home-thisissue .excerpt {
+    width: 67%;
+}
+
+#home-thisissue a {
+    border: none;
+    color: inherit;
+}
+
+#home-thisissue .tray {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#home-thisissue .tray li {
+    display: inline-block;
+    text-align: center;
+    list-style: none;
+    margin: 0 0 0 0.5em;
+    padding: 0.25em 0.5em;
+    width: 1em;
+    height: 1em;
+    border: 1px solid #808080;
+    color: #808080;
+    cursor: pointer;
+}
+
+#home-thisissue .tray .selected {
+    border-color: #808080 /* spotcolor */;
+    color: #808080 /* spotcolor */;
+    background: #d8d8d8 /* spotcolor opacity 0.25 */;
+}
+
+#home-secondary {
+    overflow: hidden;
+}
+
+#home-blog {
+    float: left;
+    width: 322px;
+}
+
+#home-blog article * {
+    display: inline;
+    font-size: 100%;
+}
+
+#home-blog article h1::after {
+    content: ": ";
+}
+
+#home-widgets {
+    float: right;
+    width: 322px;
+}
+
+#twitter_update_list {
+    margin: 0;
+    padding: 0;
+}
+
+#twitter_update_list li {
+    list-style: none;
+    margin: 1em 0 0;
+    padding: 0;
+}
+
+#twitter_update_list li > a::before {
+    content: "\0A";
+}
+
+/* Special pages: Issue listing */
+
+#issues {
+    margin: 0;
+    padding: 0;
+}
+
+#issues > li {
+    margin: 0 0 2em;
+    padding: 0;
+    overflow: auto;
+    list-style: none;
+}
+
+#issues > li > a {
+    font-weight: bold;
+    font-size: 150%;
+}
+
+#issues img {
+    float: left;
+    margin: 0 20px 0 0;
+}
+
+#issues ul {
+    margin-left: 192px;
+}
+
+/* Special pages: Staff listing */
+
+.staff {
+    margin: 0 0 1em;
+}
+
+.staff h1 {
+    color: #808080 /* spotcolor */;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 100%;
+}
+
+.staff ul {
+    margin: 0;
+    padding: 0;
+}
+
+.staff li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
