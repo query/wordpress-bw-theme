@@ -49,15 +49,13 @@ function twentyten_setup() {
 		'primary' => __( 'Primary Navigation', 'twentyten' ),
 	) );
 
+    define('HEADER_IMAGE', '%s/images/blank.png');
 	define('HEADER_IMAGE_WIDTH', 700);
 	define('HEADER_IMAGE_HEIGHT', 147);
+	define('NO_HEADER_TEXT', true);
 
 	set_post_thumbnail_size(684, 150, true);
-	
 	add_image_size('issue-thumbnail', 172, 9999);
-
-	// Don't support text inside the header image.
-	define('NO_HEADER_TEXT', true);
 	
 	add_custom_image_header('', 'bw_admin_header_style');
 
