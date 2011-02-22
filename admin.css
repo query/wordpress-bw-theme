@@ -6,6 +6,7 @@
     max-height: 205px;
     border: 1px solid #dfdfdf;
     padding: 0.5em 0.9em;
+    margin: 0.5em 0 0 18px;
     overflow: auto;
 }
 

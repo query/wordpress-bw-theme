@@ -32,9 +32,7 @@ endif; // breadcrumb
 <div id="copyright">
 © 2007&ndash;<?php echo date('Y'); ?>
 
-<a href="<?php echo home_url( '/' ) ?>" rel="home">
-<?php bloginfo( 'name' ); ?>
-</a>.
+<a href="<?php echo home_url('/'); ?>" rel="home"><?php bloginfo('name'); ?></a>.
 Original design by <a href="http://www.amandamcphersondesign.com/">Amanda McPherson</a>.
 
 <?php

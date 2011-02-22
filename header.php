@@ -48,13 +48,10 @@
 <div id="wrapper" class="hfeed">
 <header>
 <hgroup>
-<h1><a rel="home" href="<?php echo home_url( '/' ); ?>">Blue &amp; White Online</a></h1><?php
-/*
-<h2>Volume 13, Issue 4</h2>
-<h3>February 2011</h3>
-*/
-?>
+<h1><a rel="home" href="<?php echo home_url('/'); ?>"><?php bloginfo('name'); ?></a></h1>
 </hgroup>
+
+<img src="<?php header_image(); ?>" width="<?php echo HEADER_IMAGE_WIDTH; ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="" />
 
 <nav>
 <div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentyten' ); ?>"><?php _e( 'Skip to content', 'twentyten' ); ?></a></div>

@@ -1,7 +1,7 @@
 jQuery(document).ready(function() {
     var tray = jQuery('<ul class="tray" />');
     
-    jQuery('#home-thisissue .carousel').jcarousel({
+    jQuery('#home-featured .carousel').jcarousel({
         scroll: 1, auto: 7, wrap: 'circular',
         buttonPrevHTML: null, buttonNextHTML: null,
         initCallback: function (carousel, state) {
@@ -16,7 +16,7 @@ jQuery(document).ready(function() {
                 tray.append(button);
             }
             
-            jQuery('#home-thisissue').append(tray);
+            jQuery('#home-featured').append(tray);
         },
         itemFirstInCallback: function (carousel, li, index, state) {
             tray.children().removeClass('selected');

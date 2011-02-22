@@ -34,8 +34,8 @@ a:visited {
     border: 3px solid <?php echo $spotcolor; ?>;
 }
 
-#wrapper > header hgroup {
-    background-color: <?php echo $spotcolor; ?>;
+#wrapper > header h1 {
+    background: <?php echo $spotcolor; ?>;
 }
 
 #wrapper > header nav {
@@ -62,11 +62,11 @@ h1.entry-title, .entry-title h1 {
     color: <?php echo $spotcolor; ?>;
 }
 
-#home-thisissue article {
+#home-featured article {
     background: <?php echo $spotcolor; ?>;
 }
 
-#home-thisissue .tray .selected {
+#home-featured .tray .selected {
     border-color: <?php echo $spotcolor; ?>;
     color: <?php echo $spotcolor; ?>;
     background: <?php echo bw_get_color_with_opacity($spotcolor, 0.25); ?>;

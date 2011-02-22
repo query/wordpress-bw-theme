@@ -69,22 +69,24 @@ img {
 
 #wrapper > header {
     display: block;
+    position: relative;
     width: 700px;
 }
 
-#wrapper > header hgroup {
+#wrapper > header img {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#wrapper > header h1 {
     display: block;
     position: relative;
     height: 147px;
     margin: 0;
     padding: 0;
     text-indent: -999px;
-    background: #808080 /* spotcolor */ url(images/header.png);
-}
-
-#wrapper > header hgroup * {
-    margin: 0;
-    padding: 0;
+    background: #808080 /* spotcolor */;
 }
 
 #wrapper > header hgroup a:link,
@@ -95,6 +97,7 @@ img {
     width: 100%;
     height: 100%;
     border-bottom-style: none;
+    z-index: 99;
 }
 
 #wrapper > header nav {
@@ -617,13 +620,13 @@ h3#reply-title {
     margin-top: 0;
 }
 
-#home-thisissue {
+#home-featured {
     position: relative;
     margin: 0 0 2em;
     padding: 0 0 2em;
 }
 
-#home-thisissue .carousel, #home-thisissue .carousel li {
+#home-featured .carousel, #home-featured .carousel li {
     margin: 0;
     padding: 0;
     width: 684px;
@@ -632,36 +635,36 @@ h3#reply-title {
     list-style: none;
 }
 
-#home-thisissue .carousel li {
+#home-featured .carousel li {
     margin-right: 20px;
 }
 
-#home-thisissue article {
+#home-featured article {
     width: 684px;
     height: 225px;
     background: #808080 /* spotcolor */;
     color: white;
 }
 
-#home-thisissue figure {
+#home-featured figure {
     margin: 0;
     padding: 0;
 }
 
-#home-thisissue .carousel h1, #home-thisissue .excerpt {
+#home-featured .carousel h1, #home-featured .excerpt {
     margin: 0 10px;
 }
 
-#home-thisissue .excerpt {
+#home-featured .excerpt {
     width: 67%;
 }
 
-#home-thisissue a {
+#home-featured a {
     border: none;
     color: inherit;
 }
 
-#home-thisissue .tray {
+#home-featured .tray {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -669,7 +672,7 @@ h3#reply-title {
     padding: 0;
 }
 
-#home-thisissue .tray li {
+#home-featured .tray li {
     display: inline-block;
     text-align: center;
     list-style: none;
@@ -682,7 +685,7 @@ h3#reply-title {
     cursor: pointer;
 }
 
-#home-thisissue .tray .selected {
+#home-featured .tray .selected {
     border-color: #808080 /* spotcolor */;
     color: #808080 /* spotcolor */;
     background: #d8d8d8 /* spotcolor opacity 0.25 */;

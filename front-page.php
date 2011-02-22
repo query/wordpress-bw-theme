@@ -57,8 +57,8 @@ switch ($options['featured']) {
 if (count($featured_pages)) {
 ?>
 <div id="home-primary">
-<section id="home-thisissue">
-<h1>In This Issue</h1>
+<section id="home-featured">
+<h1><?php esc_html_e($options['featured_heading']); ?></h1>
 
 <ul class="carousel jcarousel-skin-none">
 <?php
@@ -79,7 +79,7 @@ if (count($featured_pages)) {
     }
 ?>
 </ul>
-</section> <!-- #home-thisissue -->
+</section> <!-- #home-featured -->
 </div> <!-- #home-primary -->
 <?php
 }
@@ -89,7 +89,7 @@ wp_reset_query();
 
 <div id="home-secondary">
 <section id="home-blog">
-<h1>From the Blog</h1>
+<h1><?php _e('From the Blog'); ?></h1>
 
 <?php
 

@@ -49,21 +49,42 @@ function twentyten_setup() {
 		'primary' => __( 'Primary Navigation', 'twentyten' ),
 	) );
 
-	// The height and width of your custom header. You can hook into the theme's own filters to change these values.
-	// Add a filter to twentyten_header_image_width and twentyten_header_image_height to change these values.
-	define( 'HEADER_IMAGE_WIDTH', apply_filters( 'twentyten_header_image_width', 684 ) );
-	define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'twentyten_header_image_height', 150 ) );
+	define('HEADER_IMAGE_WIDTH', 700);
+	define('HEADER_IMAGE_HEIGHT', 147);
 
-	set_post_thumbnail_size( HEADER_IMAGE_WIDTH, HEADER_IMAGE_HEIGHT, true );
+	set_post_thumbnail_size(684, 150, true);
 	
 	add_image_size('issue-thumbnail', 172, 9999);
 
 	// Don't support text inside the header image.
-	define( 'NO_HEADER_TEXT', true );
+	define('NO_HEADER_TEXT', true);
+	
+	add_custom_image_header('', 'bw_admin_header_style');
 
-	// ... and thus ends the changeable header business.
+	register_default_headers(array(
+		'blank' => array(
+			'url' => '%s/images/blank.png',
+			'thumbnail_url' => '%s/images/blank-thumbnail.png',
+			/* translators: header image description */
+			'description' => __('Blank', 'bw')
+		)
+	));
 }
 endif;
+
+function bw_admin_header_style() {
+?>
+<style type="text/css">
+#headimg {
+    background: <?php echo bw_get_spotcolor(); ?>;
+}
+
+label img {
+    background: <?php echo bw_get_spotcolor(); ?>;
+}
+</style>
+<?php
+}
 
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
@@ -429,7 +450,7 @@ function bw_theme_options_page() {
 <input id="bw_theme_spotcolor_constant" name="bw_theme_options[spotcolor_from]" type="radio" value="constant"<?php if ($options['spotcolor_from'] === 'constant') echo ' checked="checked"'; ?> />
 <?php printf(__('Use a specific color: %s <span class="description">Hex triplet format (#rrggbb)</span>'),
              '<input name="bw_theme_options[spotcolor_constant]" ' .
-              'type="text" size="7" value="' . $options['spotcolor_constant'] . '" />'); ?>
+              'type="text" size="7" value="' . esc_attr($options['spotcolor_constant']) . '" />'); ?>
 </label>
 </p>
 </fieldset></td>
@@ -439,6 +460,19 @@ function bw_theme_options_page() {
 <th scope="row"><?php _e('Front page feature carousel'); ?></th>
 <td id="bw_theme_featured_pages"><fieldset><legend class="screen-reader-text"><span><?php _e('Front page feature carousel'); ?></span></legend>
 <p>
+<label for="bw_theme_featured_heading">
+<?php printf(__('Carousel heading text: %s <span class="description">e.g. “Featured Articles”, “In This Issue”</span>'),
+             '<input id="bw_theme_featured_heading" name="bw_theme_options[featured_heading]" ' .
+              'type="text" size="20" value="' . esc_attr($options['featured_heading']) . '" />'); ?>
+</label>
+</p>
+
+<p>
+<?php _e('Display the following articles in the carousel:'); ?>
+</p>
+
+<ul>
+<li>
 <label for="bw_theme_featured_pages_root">
 <input id="bw_theme_featured_pages_root" name="bw_theme_options[featured]" type="radio" value="root"<?php if ($options['featured'] === 'root') echo ' checked="checked"'; ?> />
 <?php printf(__('Show the subpages of the first subpage of: %s'),
@@ -448,14 +482,13 @@ function bw_theme_options_page() {
                                      'selected' => $options['featured_root'])));
 ?>
 </label>
-</p>
+</li>
 
-<p>
+<li>
 <label for="bw_theme_featured_pages_list">
 <input id="bw_theme_featured_pages_list" name="bw_theme_options[featured]" type="radio" value="pages"<?php if ($options['featured'] === 'pages') echo ' checked="checked"'; ?> />
 <?php _e('Show the following pages:'); ?>
 </label>
-</p>
 
 <div id="bw_theme_featured_pages_container">
 <ul>
@@ -483,6 +516,8 @@ echo $page_list;
 ?>
 </ul>
 </div>
+</li>
+</ul>
 </fieldset></td>
 </tr>
 </table>
@@ -522,6 +557,9 @@ function bw_validate_theme_options($input) {
     if (in_array($input['featured'], array('root', 'pages'))) {
         $options['featured'] = $input['featured'];
     }
+    
+    // Any feature carousel heading is valid.
+    $options['featured_heading'] = $input['featured_heading'];
     
     // Make sure the selected featured pages exist.
     foreach ($pages as $page) {
