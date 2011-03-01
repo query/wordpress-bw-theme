@@ -338,13 +338,15 @@ function bw_get_spotcolor() {
     
     if (is_page()) {
         $ancestors = $post->ancestors;
-        array_unshift($ancestors, $post->ID);
+        if ($ancestors) {
+            array_unshift($ancestors, $post->ID);
         
-        foreach ($ancestors as $ancestor_id) {
-            $new_spotcolor = get_post_meta($ancestor_id, 'spotcolor', true);
-            if ($new_spotcolor) {
-                $spotcolor = $new_spotcolor;
-                break;
+            foreach ($ancestors as $ancestor_id) {
+                $new_spotcolor = get_post_meta($ancestor_id, 'spotcolor', true);
+                if ($new_spotcolor) {
+                    $spotcolor = $new_spotcolor;
+                    break;
+                }
             }
         }
     }
