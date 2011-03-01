@@ -63,20 +63,27 @@ if (count($featured_pages)) {
 <ul class="carousel jcarousel-skin-none">
 <?php
     foreach ($featured_pages as $featured_page) {
+        $featured_query = new WP_Query(array('page_id' => $featured_page));
+
+        if ($featured_query->have_posts()) {
+            $featured_query->the_post();
 ?>
 <li>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 <a href="<?php echo the_permalink(); ?>" rel="bookmark">
 <figure>
-<?php echo get_the_post_thumbnail($featured_page, 'post-thumbnail', array('alt' => '', 'title' => '')); ?>
+<?php echo get_the_post_thumbnail($post->ID, 'post-thumbnail', array('alt' => '', 'title' => '')); ?>
 </figure>
-<h1><?php echo get_the_title($featured_page); ?></h1>
-<div class="excerpt"><?php echo get_post_meta($featured_page, 'excerpt', true); ?></div>
+<h1><?php echo the_title(); ?></h1>
+<div class="excerpt"><?php echo get_post_meta($post->ID, 'excerpt', true); ?></div>
 </a>
 </article>
 </li>
 <?php
+        }
     }
+
+    wp_reset_postdata();
 ?>
 </ul>
 </section> <!-- #home-featured -->
