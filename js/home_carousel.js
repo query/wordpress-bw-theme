@@ -12,6 +12,9 @@ jQuery(document).ready(function() {
                 button = jQuery('<li>' + i + '</li>');
                 button.bind('click', function () {
                     carousel.scroll(jQuery.jcarousel.intval(jQuery(this).text()));
+
+                    // Stop automatic scrolling once clicked.
+                    carousel.stopAuto();
                 });
                 tray.append(button);
             }
