@@ -70,11 +70,11 @@ if (count($featured_pages)) {
 ?>
 <li>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-<a href="<?php echo the_permalink(); ?>" rel="bookmark">
+<a href="<?php the_permalink(); ?>" rel="bookmark">
 <figure>
-<?php echo get_the_post_thumbnail($post->ID, 'post-thumbnail', array('alt' => '', 'title' => '')); ?>
+<?php the_post_thumbnail('post-thumbnail', array('alt' => '', 'title' => '')); ?>
 </figure>
-<h1><?php echo the_title(); ?></h1>
+<h1><?php the_title(); ?></h1>
 <div class="excerpt"><?php echo get_post_meta($post->ID, 'excerpt', true); ?></div>
 </a>
 </article>
