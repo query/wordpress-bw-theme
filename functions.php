@@ -332,6 +332,8 @@ function twentyten_posted_in() {
 endif;
 
 function bw_get_spotcolor() {
+    global $post;
+
     $spotcolor = '';
     
     if (is_page()) {
