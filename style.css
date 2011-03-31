@@ -822,7 +822,7 @@ h3#reply-title {
 #issues > li {
     margin: 0 0 2em;
     padding: 0;
-    overflow: auto;
+    overflow: hidden;
     list-style: none;
 }
 
