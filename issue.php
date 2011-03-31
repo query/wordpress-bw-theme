@@ -27,7 +27,7 @@ while ($issue->have_posts()) {
 ?>
 <dt>
 <a href="<?php echo the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'twentyten' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
-by <?php echo bw_get_author(); ?>
+<?php if ($author = bw_get_author()) { ?>by <?php echo $author; } ?>
 </dt>
 <dd><?php echo get_post_meta($post->ID, 'excerpt', true); ?></dd>
 <?php

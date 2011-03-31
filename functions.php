@@ -292,14 +292,17 @@ if ( ! function_exists( 'twentyten_posted_on' ) ) :
  * @since Twenty Ten 1.0
  */
 function twentyten_posted_on() {
-	printf( __( '<span class="%1$s">Posted on</span> %2$s <span class="meta-sep">by</span> %3$s', 'twentyten' ),
+	printf( __( '<span class="%1$s">Posted on</span> %2$s%3$s', 'twentyten' ),
 		'meta-prep meta-prep-author',
 		sprintf( '<a href="%1$s" rel="bookmark"><time datetime="%2$s" class="entry-date" pubdate>%3$s</time></a>',
 			get_permalink(),
 			esc_attr( get_the_time('c') ),
 			get_the_date()
 		),
-		bw_get_author()
+		(($author = bw_get_author()) ?
+            sprintf( __( ' <span class="meta-sep">by</span> %s', 'twentyten' ), $author ) :
+            ''
+        )
 	);
 }
 endif;
