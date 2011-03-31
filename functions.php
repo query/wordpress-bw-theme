@@ -356,7 +356,7 @@ function bw_get_spotcolor() {
         
         switch ($options['spotcolor_from']) {
             case 'latest_subpage_of':
-                $sc_posts = new WP_Query(array('numberposts' => -1,
+                $sc_posts = new WP_Query(array('posts_per_page' => 1,
                                                'orderby' => 'menu_order',
                                                'order' => 'ASC',
                                                'post_type' => 'page',

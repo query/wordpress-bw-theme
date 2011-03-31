@@ -17,7 +17,7 @@ get_header();
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 <dl>
 <?php
-$issue = new WP_Query(array('numberposts' => -1,
+$issue = new WP_Query(array('posts_per_page' => -1,
                             'orderby' => 'menu_order', 'order' => 'ASC',
                             'post_type' => 'page',
                             'post_parent' => $post->ID));

@@ -30,14 +30,14 @@ $featured_pages = array();
 
 switch ($options['featured']) {
     case 'root':
-        $issues = new WP_Query(array('numberposts' => 1,
+        $issues = new WP_Query(array('posts_per_page' => 1,
                                      'orderby' => 'menu_order', 'order' => 'ASC',
                                      'post_type' => 'page',
                                      'post_parent' => $options['featured_root']));
         
         if ($issues->have_posts()) {
             $issues->the_post();
-            $issue = new WP_Query(array('numberposts' => -1,
+            $issue = new WP_Query(array('posts_per_page' => -1,
                                         'orderby' => 'menu_order', 'order' => 'ASC',
                                         'post_type' => 'page',
                                         'post_parent' => $post->ID));
